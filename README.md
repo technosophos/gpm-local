@@ -48,3 +48,9 @@ $ gpm local name PACKAGE_NAME
 In the above, `PACKAGE_NAME` is the name of the present package. This
 will make it possible for the go tools to locate all of the subpackages
 of the present package.
+
+## How It Works
+
+This works in a rather uninspiring way: It creates a symbolic link from
+the local package to `.gopath/src/` so that the Go tools find
+subpackages in `$GOPATH`.
