@@ -54,3 +54,7 @@ of the present package.
 This works in a rather uninspiring way: It creates a symbolic link from
 the local package to `.gopath/src/` so that the Go tools find
 subpackages in `$GOPATH`.
+
+## See Also...
+
+* [gpm-git](https://github.com/technosophos/gpm-git)
