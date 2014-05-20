@@ -49,7 +49,7 @@ EOF
 ## Command Line Parsing
 case "${1:-"name"}" in
   "version")
-    echo ">> gpm-pkgname v0.0.1"
+    echo ">> gpm-local v0.0.1"
     ;;
   "name")
     [[ "${2:-""}" == "" ]] && usage_name && exit 1

@@ -9,15 +9,17 @@ This plugin is designed to help you manage a large package (with
 subpackages) that also has external dependencies.
 
 The GPM and GVP tools provide a way to handle package-local `$GOPATH`.
-This plugin makes it possible for `go` tools to find the present package
-by fully qualified package name.
+Already, they provide excellent support for external packages.
+
+This plugin makes it possible for `go` tools to find subpackages in the 
+present package by fully qualified package name.
 
 For example, assume you have a package named
 `github.com/technosophos/foo`. Say you have this package checked out in
 a local directory named `foo/`. With GPM/GVP, your `$GOPATH` will point
 to `foo/.godeps`.
 
-Now say you have a subpackage in `foo` called
+Now say you have a subpackage in `foo/` called
 `github.com/technosophos/foo/bar`. In order to correctly import this
 package, you will need the full package name to show up in your
 `$GOPATH`. That's where `gpm-local` comes in:
@@ -26,10 +28,15 @@ package, you will need the full package name to show up in your
 $ go test
 server.go:25:2: cannot find package "github.com/technosophos/foo/bar" in any of:
 ...
+# Uh-oh! The subpackage cannot be found!
 $ gpm local name github.com/technosophos/foo
 $ go test
 # works!
 ```
+
+Above, we used `gpm local name` to tell `gpm` what the name of our local
+package is. With this information, it can configure the `$GOPATH` so
+that the standard Go tools will be able to find subpackages.
 
 ## Installation
 
