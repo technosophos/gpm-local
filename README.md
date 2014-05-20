@@ -15,7 +15,7 @@ by fully qualified package name.
 For example, assume you have a package named
 `github.com/technosophos/foo`. Say you have this package checked out in
 a local directory named `foo/`. With GPM/GVP, your `$GOPATH` will point
-to `foo/.gopath`.
+to `foo/.godeps`.
 
 Now say you have a subpackage in `foo` called
 `github.com/technosophos/foo/bar`. In order to correctly import this
@@ -52,7 +52,7 @@ of the present package.
 ## How It Works
 
 This works in a rather uninspiring way: It creates a symbolic link from
-the local package to `.gopath/src/` so that the Go tools find
+the local package to `.godeps/src/` so that the Go tools find
 subpackages in `$GOPATH`.
 
 ## See Also...
